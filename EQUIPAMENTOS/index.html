@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GW / KHOMP DADOS — Importador</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="brand">DADOS</div>
+        <span class="tag-top">EQUIPAMENTOS</span>
+    </header>
+
+    <div class="layout">
+        <aside>
+            <div>
+                <div class="section-title">Base de Dados</div>
+                <label for="baseSelect">Base Ativa</label>
+                <select id="baseSelect"></select>
+                <button type="button" class="btn-red" id="btnExcluirBase">Excluir Base Ativa</button>
+            </div>
+
+            <div>
+                <div class="section-title">Importar Planilha</div>
+                <label for="nomeBaseInput">Nome da Base</label>
+                <input type="text" id="nomeBaseInput" placeholder="Ex: Clientes_2026" />
+
+                <label style="margin-top: 12px;">Arquivo (.xlsx / .csv)</label>
+                <div class="file-drop" id="fileDrop">
+                    Selecionar Ficheiro
+                    <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" hidden />
+                </div>
+                <div class="file-name" id="fileNameLabel">Nenhum arquivo selecionado</div>
+
+                <button type="button" class="btn-blue" id="btnSubirPlanilha">Subir Planilha</button>
+                <button type="button" class="btn-secondary" id="btnLimparFiltros">Limpar Filtros</button>
+                <button class="btn"><a href="../index.html" class="btn"> Voltar</a></button>
+        </aside>
+
+        <main>
+            <div class="search-box">
+                <input type="text" id="searchInput"
+                    placeholder="Pesquisar por Código, Empresa, Equipamento (GW / KHOMP), IP ou Senha..." />
+            </div>
+
+            <div class="meta-bar">
+                <div>REGISTROS LOCALIZADOS: <strong id="totalRegistros">0</strong></div>
+                <div class="filter-pills">
+                    <button type="button" class="pill active" data-filter="TODOS">TODOS</button>
+                    <button type="button" class="pill" data-filter="GW">GW</button>
+                    <button type="button" class="pill" data-filter="KHOMP">KHOMP</button>
+                </div>
+            </div>
+
+            <div class="cards-list" id="cardsContainer"></div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
